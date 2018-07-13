@@ -6,6 +6,7 @@ pipeline {
       ORG               = 'faithlinpaul'
       APP_NAME          = 'api'
       CHARTMUSEUM_CREDS = credentials('jenkins-x-chartmuseum')
+      DOCKER_REGISTRY = "255649138826.dkr.ecr.eu-west-1.amazonaws.com"
     }
     stages {
       stage('CI Build and push snapshot') {
