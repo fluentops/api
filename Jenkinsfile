@@ -4,7 +4,7 @@ pipeline {
     }
     environment {
       ORG               = 'faithlinpaul'
-      APP_NAME          = 'api'
+      APP_NAME          = 'jenkinsx-api'
       CHARTMUSEUM_CREDS = credentials('jenkins-x-chartmuseum')
       DOCKER_REGISTRY = "255649138826.dkr.ecr.eu-west-1.amazonaws.com"
     }
@@ -62,7 +62,7 @@ pipeline {
             sh 'export VERSION=`cat VERSION` && skaffold build -f skaffold.yaml'
 
 
-            sh "jx step post build --image $DOCKER_REGISTRY/$ORG/$APP_NAME:\$(cat VERSION)"
+            sh "jx step post build --image $DOCKER_REGISTRY/$APP_NAME:\$(cat VERSION)"
           }
         }
       }
